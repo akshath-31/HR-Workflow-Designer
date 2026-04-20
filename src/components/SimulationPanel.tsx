@@ -24,28 +24,28 @@ export default function SimulationPanel() {
 
   return (
     <div className={clsx(
-      "bg-[#161b22] border-t border-[#30363d] overflow-hidden transition-all duration-300 flex flex-col",
+      "bg-white border-t border-gray-300 overflow-hidden transition-all duration-300 flex flex-col",
       isOpen ? "h-64" : "h-10"
     )}>
       {/* Header */}
-      <div className="px-4 py-2 bg-[#0f1117] border-b border-[#30363d] flex items-center justify-between shrink-0">
+      <div className="px-4 py-2 bg-white border-b border-gray-300 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="text-[#8b949e] hover:text-[#e6edf3]"
+            className="text-gray-500 hover:text-gray-900"
           >
             {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
           </button>
           <div className="flex items-center gap-2">
-            <Play size={14} className="text-[#3fb950]" fill="currentColor" />
-            <h3 className="text-xs font-bold text-[#e6edf3] uppercase tracking-widest">Workflow Simulation</h3>
+            <Play size={14} className="text-green-500" fill="currentColor" />
+            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-widest">Workflow Simulation</h3>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
           <button
             onClick={downloadJson}
-            className="flex items-center gap-1.5 px-3 py-1 bg-[#1c2128] hover:bg-[#30363d] text-[#e6edf3] rounded text-[11px] font-semibold border border-[#30363d] transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1 bg-gray-50 hover:bg-gray-100 text-gray-900 rounded text-[11px] font-semibold border border-gray-300 transition-colors"
           >
             <Download size={14} />
             Export JSON
@@ -53,7 +53,7 @@ export default function SimulationPanel() {
           <button
             onClick={runSimulation}
             disabled={isRunning}
-            className="flex items-center gap-1.5 px-4 py-1 bg-[#238636] hover:bg-[#2ea043] disabled:opacity-50 text-white rounded text-[11px] font-bold shadow-sm transition-colors"
+            className="flex items-center gap-1.5 px-4 py-1 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded text-[11px] font-bold shadow-sm transition-colors"
           >
             {isRunning ? <Loader2 size={14} className="animate-spin" /> : <Play size={14} fill="currentColor" />}
             Run Simulation

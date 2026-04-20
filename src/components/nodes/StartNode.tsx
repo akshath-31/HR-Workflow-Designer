@@ -6,18 +6,18 @@ import { clsx } from 'clsx'
 export default function StartNode({ data, selected }: NodeProps<StartNodeData>) {
   return (
     <div className={clsx(
-      'min-w-[200px] bg-[#1a4a2e] border-2 rounded-lg p-3 shadow-xl transition-all',
-      selected ? 'border-[#238636] ring-2 ring-[#238636]/50' : 'border-[#238636]/50'
+      'min-w-[200px] bg-white border rounded-xl p-3 shadow-sm transition-all',
+      selected ? 'border-green-500 ring-2 ring-green-500/30' : 'border-gray-200'
     )}>
       <div className="flex items-center gap-3 mb-1">
-        <div className="p-1.5 bg-[#238636] rounded-md text-white">
+        <div className="p-1.5 bg-green-50 rounded-lg text-green-600">
           <Play size={16} fill="currentColor" />
         </div>
         <div>
-          <h3 className="font-mono font-medium text-sm text-white leading-tight">
+          <h3 className="font-mono font-bold text-sm text-gray-900 leading-tight">
             {data.title || 'Start'}
           </h3>
-          <p className="text-[10px] text-white/60 font-medium uppercase tracking-wider">
+          <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mt-0.5">
             Entry Point
           </p>
         </div>
@@ -25,7 +25,7 @@ export default function StartNode({ data, selected }: NodeProps<StartNodeData>) 
       <Handle
         type="source"
         position={Position.Bottom}
-        className="w-3 h-3 bg-[#238636] border-2 border-white"
+        className="w-3 h-3 bg-green-500 border-2 border-white"
       />
     </div>
   )

@@ -6,39 +6,39 @@ import { clsx } from 'clsx'
 export default function ApprovalNode({ data, selected }: NodeProps<ApprovalNodeData>) {
   return (
     <div className={clsx(
-      'min-w-[200px] bg-[#3d2c00] border-2 rounded-lg p-3 shadow-xl transition-all',
-      selected ? 'border-[#9e6a03] ring-2 ring-[#9e6a03]/50' : 'border-[#9e6a03]/50'
+      'min-w-[200px] bg-white border rounded-xl p-3 shadow-sm transition-all',
+      selected ? 'border-yellow-500 ring-2 ring-yellow-500/30' : 'border-gray-200'
     )}>
       <div className="flex items-center gap-3 mb-2">
-        <div className="p-1.5 bg-[#9e6a03] rounded-md text-white">
+        <div className="p-1.5 bg-yellow-50 rounded-lg text-yellow-600">
           <CheckSquare size={16} />
         </div>
         <div>
-          <h3 className="font-mono font-medium text-sm text-white leading-tight">
+          <h3 className="font-mono font-bold text-sm text-gray-900 leading-tight">
             {data.title || 'Approval'}
           </h3>
-          <p className="text-[10px] text-white/60 font-medium uppercase tracking-wider">
+          <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mt-0.5">
             Decision Point
           </p>
         </div>
       </div>
       <div className="flex flex-wrap gap-1 mt-2">
-        <div className="text-[10px] text-[#9e6a03] font-semibold bg-[#9e6a03]/10 px-2 py-0.5 rounded border border-[#9e6a03]/30">
+        <div className="text-[10px] text-yellow-700 font-bold bg-yellow-50 px-2 py-0.5 rounded border border-yellow-200">
           {data.approverRole}
         </div>
-        <div className="text-[10px] text-white/40 font-mono italic flex items-center">
+        <div className="text-[10px] text-gray-400 font-mono italic flex items-center">
           Threshold: {data.autoApproveThreshold}%
         </div>
       </div>
       <Handle
         type="target"
         position={Position.Top}
-        className="w-3 h-3 bg-[#9e6a03] border-2 border-white"
+        className="w-3 h-3 bg-yellow-500 border-2 border-white"
       />
       <Handle
         type="source"
         position={Position.Bottom}
-        className="w-3 h-3 bg-[#9e6a03] border-2 border-white"
+        className="w-3 h-3 bg-yellow-500 border-2 border-white"
       />
     </div>
   )

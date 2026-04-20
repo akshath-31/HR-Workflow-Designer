@@ -7,7 +7,7 @@ import WorkflowCanvas from './components/WorkflowCanvas'
 
 export default function App() {
   return (
-    <div className="flex flex-col h-screen w-screen bg-[#0f1117] text-[#e6edf3]">
+    <div className="flex flex-col h-screen w-screen bg-gray-50 text-gray-900">
       <Toolbar />
       
       <div className="flex flex-1 overflow-hidden">

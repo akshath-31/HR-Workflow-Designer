@@ -34,31 +34,31 @@ export default function AutomatedNodeForm({ data, onChange }: Props) {
     })
   }
 
-  if (loading) return <div className="text-xs text-[#8b949e] animate-pulse">Loading automation actions...</div>
+  if (loading) return <div className="text-xs text-gray-500 animate-pulse">Loading automation actions...</div>
 
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-[11px] font-semibold text-[#8b949e] uppercase tracking-wider mb-1.5">
+        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
           Step Title
         </label>
         <input
           type="text"
           value={data.title}
           onChange={(e) => onChange({ title: e.target.value })}
-          className="w-full bg-[#0f1117] border border-[#30363d] rounded px-3 py-2 text-sm text-[#e6edf3] focus:border-[#58a6ff] focus:outline-none"
+          className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           placeholder="e.g. Notify Slack"
         />
       </div>
 
       <div>
-        <label className="block text-[11px] font-semibold text-[#8b949e] uppercase tracking-wider mb-1.5">
+        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
           System Action
         </label>
         <select
           value={data.actionId}
           onChange={(e) => handleActionChange(e.target.value)}
-          className="w-full bg-[#0f1117] border border-[#30363d] rounded px-3 py-2 text-sm text-[#e6edf3] focus:border-[#58a6ff] focus:outline-none appearance-none"
+          className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none appearance-none"
         >
           <option value="" disabled>Select an action</option>
           {actions.map(action => (
@@ -68,18 +68,18 @@ export default function AutomatedNodeForm({ data, onChange }: Props) {
       </div>
 
       {selectedAction && (
-        <div className="space-y-3 pt-2 border-t border-[#30363d]">
-          <h4 className="text-[10px] font-bold text-[#8b949e] uppercase tracking-widest">Action Parameters</h4>
+        <div className="space-y-3 pt-2 border-t border-gray-300">
+          <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Action Parameters</h4>
           {selectedAction.params.map(param => (
             <div key={param}>
-              <label className="block text-[10px] font-medium text-[#c9d1d9] mb-1 capitalize">
+              <label className="block text-[10px] font-medium text-gray-700 mb-1 capitalize">
                 {param.replace(/([A-Z])/g, ' $1').trim()}
               </label>
               <input
                 type="text"
                 value={data.actionParams[param] || ''}
                 onChange={(e) => handleParamChange(param, e.target.value)}
-                className="w-full bg-[#0f1117] border border-[#30363d] rounded px-2 py-1.5 text-xs text-[#e6edf3] focus:border-[#58a6ff] focus:outline-none"
+                className="w-full bg-white border border-gray-300 rounded px-2 py-1.5 text-xs text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                 placeholder={`Enter ${param}...`}
               />
             </div>

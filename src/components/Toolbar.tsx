@@ -64,37 +64,37 @@ export default function Toolbar() {
   }
 
   return (
-    <div className="h-14 bg-[#161b22] border-b border-[#30363d] flex items-center justify-between px-4 z-50">
+    <div className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-4 z-50">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-[#58a6ff] rounded flex items-center justify-center text-white shadow-lg shadow-[#58a6ff]/20">
+        <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
           <GitPullRequest size={20} />
         </div>
         <div>
-          <h1 className="text-sm font-bold text-[#e6edf3]">HR Workflow Designer</h1>
-          <p className="text-[10px] text-[#8b949e] font-medium uppercase tracking-widest -mt-0.5">Internal Tools Studio</p>
+          <h1 className="text-sm font-bold text-gray-900">HR Workflow Designer</h1>
+          <p className="text-[10px] text-gray-500 font-medium uppercase tracking-widest -mt-0.5">Internal Tools Studio</p>
         </div>
       </div>
 
       <div className="flex items-center gap-2">
         <button
           onClick={handleAutoLayout}
-          className="flex items-center gap-2 px-3 py-1.5 bg-[#1c2128] hover:bg-[#30363d] text-[#e6edf3] rounded text-xs font-semibold border border-[#30363d] transition-all"
+          className="flex items-center gap-2 px-3 py-1.5 bg-white hover:bg-gray-50 text-gray-700 rounded text-xs font-semibold border border-gray-200 shadow-sm transition-all"
         >
-          <Layout size={14} className="text-[#58a6ff]" />
+          <Layout size={14} className="text-blue-600" />
           Auto Layout
         </button>
 
-        <label className="flex items-center gap-2 px-3 py-1.5 bg-[#1c2128] hover:bg-[#30363d] text-[#e6edf3] rounded text-xs font-semibold border border-[#30363d] transition-all cursor-pointer">
-          <Upload size={14} className="text-[#58a6ff]" />
+        <label className="flex items-center gap-2 px-3 py-1.5 bg-white hover:bg-gray-50 text-gray-700 rounded text-xs font-semibold border border-gray-200 shadow-sm transition-all cursor-pointer">
+          <Upload size={14} className="text-blue-600" />
           Import JSON
           <input type="file" accept=".json" onChange={handleImport} className="hidden" />
         </label>
 
-        <div className="w-px h-6 bg-[#30363d] mx-1" />
+        <div className="w-px h-6 bg-gray-200 mx-1" />
 
         <button
           onClick={handleClear}
-          className="flex items-center gap-2 px-3 py-1.5 bg-transparent hover:bg-[#da3633]/10 text-[#8b949e] hover:text-[#da3633] rounded text-xs font-semibold transition-all"
+          className="flex items-center gap-2 px-3 py-1.5 bg-transparent hover:bg-red-50 text-gray-500 hover:text-red-600 rounded text-xs font-semibold transition-all"
         >
           <Trash2 size={14} />
           Clear All
@@ -102,9 +102,9 @@ export default function Toolbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 px-3 py-1 bg-[#0f1117] rounded border border-[#30363d]">
-          <span className="text-[10px] text-[#8b949e] uppercase font-bold">Nodes</span>
-          <span className="text-[10px] text-[#e6edf3] font-mono">{nodes.length}</span>
+        <div className="flex items-center gap-2 px-3 py-1 bg-gray-50 rounded border border-gray-200">
+          <span className="text-[10px] text-gray-500 uppercase font-bold">Nodes</span>
+          <span className="text-[10px] text-gray-900 font-mono">{nodes.length}</span>
         </div>
       </div>
     </div>
