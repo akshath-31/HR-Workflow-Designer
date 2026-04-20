@@ -4,7 +4,25 @@ A visual workflow designer built for Tredence Analytics' Full Stack Engineering 
 
 ## Demo / Screenshots
 
-*(Add screenshots here)*
+### Main Dashboard
+![Main Dashboard](public/screenshots/main-dashboard.png)
+*A clean, light-themed interface for designing complex HR workflows.*
+
+### Node Configuration
+![Node Configuration](public/screenshots/node-configuration.png)
+*Deep configuration for each node type, including assignee mapping and approval thresholds.*
+
+### Workflow Validation
+![Validation Error](public/screenshots/validation-error.png)
+*Real-time graph validation catching unconnected nodes and invalid pathways.*
+
+### Simulation Execution
+![Successful Simulation](public/screenshots/successful-simulation.png)
+*Step-by-step asynchronous simulation of the HR workflow with detailed logs.*
+
+### Node Palette
+![Node Palette](public/screenshots/node-palette.png)
+*A dedicated selection of purpose-built HR workflow components.*
 
 ## Tech Stack
 
@@ -47,11 +65,11 @@ npm run dev
 
 | Node Type | Icon | Details / Config Fields |
 | :--- | :--- | :--- |
-| **Start** | Play (`#238636`) | Workflow entry point. Contains a `title` and a list of `metadata` key-value pairs. |
-| **Task** | Clipboard (`#1f6feb`) | System task. Defines `title`, `description`, `assignee`, a `dueDate`, and `customFields`. |
-| **Approval** | Check (`#9e6a03`) | Approval gate requiring decisions. Can assign `approverRole` (Manager/HRBP/Director) and set an `autoApproveThreshold`. |
-| **Automated** | Zap (`#8957e5`) | Automated trigger mapping directly to the mock API choices (`actionId`). Renders dynamic inputs for `actionParams`. |
-| **End** | Stop (`#da3633`) | Exit path. Configures `endMessage` and toggles an `includeSummary` boolean flag. |
+| **Start** | Play | Workflow entry point. Contains a `title` and a list of `metadata` key-value pairs. |
+| **Task** | Clipboard | System task. Defines `title`, `description`, `assignee`, a `dueDate`, and `customFields`. |
+| **Approval** | Check | Approval gate requiring decisions. Can assign `approverRole` (Manager/HRBP/Director) and set an `autoApproveThreshold`. |
+| **Automated** | Zap | Automated trigger mapping directly to the mock API choices (`actionId`). Renders dynamic inputs for `actionParams`. |
+| **End** | Stop | Exit path. Configures `endMessage` and toggles an `includeSummary` boolean flag. |
 
 ## Mock API
 
