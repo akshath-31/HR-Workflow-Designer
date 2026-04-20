@@ -4,23 +4,18 @@ A visual workflow designer built for Tredence Analytics' Full Stack Engineering 
 
 ## Demo / Screenshots
 
-### Main Dashboard
 ![Main Dashboard](public/screenshots/main-dashboard.png)
 *A clean, light-themed interface for designing complex HR workflows.*
 
-### Node Configuration
 ![Node Configuration](public/screenshots/node-configuration.png)
 *Deep configuration for each node type, including assignee mapping and approval thresholds.*
 
-### Workflow Validation
 ![Validation Error](public/screenshots/validation-error.png)
 *Real-time graph validation catching unconnected nodes and invalid pathways.*
 
-### Simulation Execution
 ![Successful Simulation](public/screenshots/successful-simulation.png)
 *Step-by-step asynchronous simulation of the HR workflow with detailed logs.*
 
-### Node Palette
 ![Node Palette](public/screenshots/node-palette.png)
 *A dedicated selection of purpose-built HR workflow components.*
 
