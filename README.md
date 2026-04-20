@@ -33,7 +33,39 @@ A visual workflow designer built for Tredence Analytics' Full Stack Engineering 
 - **Zustand**: A lightweight, unopinionated state management tool without Context API boilerplate, pairing beautifully with React Flow's graph structures.
 - **Tailwind CSS v3**: Configured strictly without arbitrary shortcuts. Facilitates predictable styling directly in React components.
 - **Dagre**: Provides intelligent graph auto-layout algorithms directed precisely for the workflow trees.
-- **Lucide-react**: Lightweight and consistent SVG icons.
+- **Lucide-react**: Provides consistent, accessible SVG icons at any scale without bundle bloat.
+
+## 🚀 Bonus Features Implemented
+
+- **JSON Export/Import**: Seamlessly save and load workflow configurations.
+- **Auto-layout engine**: Integrated Dagre-d3 for one-click clean graph organization.
+- **Minimap navigation**: Enhanced UX for large-scale workflow management.
+- **Node validation logic**: Deep graph traversal to ensure strict DAG compliance and connectivity.
+
+## Directory Structure
+```text
+src/
+├── api/            # Data fetching/Services (Mock API integration)
+├── components/     # UI components and Logic (Canvas, Nodes, Forms, Panels)
+├── hooks/          # Custom React hooks for canvas and store interactions
+├── store/          # State management (Zustand workflow store)
+├── types/          # Strict TypeScript definitions for nodes and actions
+└── utils/          # Helper functions (Dagre layout, validation logic)
+```
+
+## Running locally
+
+### Prerequisites
+- Node.js version >= 18
+
+### Setup
+```bash
+git clone <repo>
+cd hr-workflow-designer
+npm install
+npm run dev
+```
+Once the dev server is running, visit **http://localhost:5173**.
 
 ## Architecture
 
@@ -46,20 +78,6 @@ A visual workflow designer built for Tredence Analytics' Full Stack Engineering 
 
 **Choice of Mocks**:
 - `simulate.ts` and `automations.ts` leverage local asynchronous functions over `JSON Server` for absolute zero setup, robust type-safe payload definitions, zero offline issues, and simple latency simulations (via `setTimeout`).
-
-**Layout**:
-- `src/components/` - Holds all the canvas layouts (Toolbar, SimulationPanel, ConfigPanel).
-- `src/components/nodes/` - Individual custom node types.
-- `src/components/forms/` - Configuration forms corresponding one-to-one with nodes.
-
-## Running locally
-
-```bash
-git clone <repo>
-cd hr-workflow-designer
-npm install
-npm run dev
-```
 
 ## Node Types & Configuration
 
@@ -85,20 +103,11 @@ The designer simulates an API to handle automations and node verifications witho
 ```
 
 **POST /simulate**
-Takes a payload encompassing the whole configuration map and runs BFS algorithms asynchronously over each level yielding execution traces or early failures.
 ```json
 // Request Payload Form
 {
   "nodes": [{ ... WorkflowNode ... }],
   "edges": [{ ... WorkflowEdge ... }]
-}
-
-// Response Form
-{
-  "success": true,
-  "steps": [
-    { "nodeId": "start-1", "nodeType": "start", "nodeTitle": "Init", "status": "success", "message": "...", "timestamp": "..." }
-  ]
 }
 ```
 
@@ -108,28 +117,11 @@ Takes a payload encompassing the whole configuration map and runs BFS algorithms
 2. Must contain **at least one** `End` node.
 3. Every non-End node must possess **at least one outgoing connection**.
 4. Every non-Start node must possess **at least one incoming connection**.
-5. Workflows must be strict Directed Acyclic Graphs (**DAGs**) - absolutely no cycles are allowed in the graph configurations.
+5. Workflows must be strict Directed Acyclic Graphs (**DAGs**) - absolutely no cycles allowed.
 
-## Design Decisions
-- **Custom Nodes Over Defaults:** React Flow defaults are restricted in data mapping visually — enforcing strictly modeled node components gives 100% control over visual representations (IBM Plex Mono matching).
-- **Zustand Serialisation:** Makes `export as JSON` and `import JSON` structurally identical without normalization layers.
-- **Discriminated TypeScript Unions:** Setting unified structures for all validation functions guarantees exhaustive configuration switches.
-- **Lucide Icon Integration:** Scalable metrics.
-- **Forms:** All forms are entirely controlled React states to eradicate out-of-sync behavior configurations during `SimulationPanel` actions.
+---
 
-## What I completed vs what I'd add with more time
-
-**Completed**:
-- All 5 custom node types mapped strictly to typed configuration forms.
-- Mock API simulations mimicking asynchronous resolutions and processing flows.
-- Strict Type checking ensuring exhaustive evaluations and zero `any` parameters.
-- Validated DAG graph algorithms blocking infinite loops and invalid pathways.
-- Export / Import logic mapped safely backwards scaling.
-- Automated tree structure layout mappings algorithms.
-
-**Would add with more time**:
-- Integration with external databasing architecture (`FastAPI` backend matched to `PostgreSQL`).
-- Real-time workflow edits collaboratively managed (`WebSockets`/`Yjs`).
-- Complete History logging capabilities for Redo/Undo (`useUndoRedo` from ReactFlow or Zundo middleware).
-- Advanced node templates.
-- Branching logic conditionals allowing conditional evaluations natively within the nodes.
+## Author
+**Akshath Senthilkumar**  
+*Full Stack Engineer Candidate at Tredence*  
+I am open to any questions regarding the technical decisions made in this project.
